@@ -86,3 +86,27 @@ body {
 .animation-delay-4000 {
   animation-delay: 4s;
 }
+
+/* Glowing pulse effect */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.animate-glow {
+  animation: glow-pulse 8s ease-in-out infinite;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-3000 {
+  animation-delay: 3s;
+}
