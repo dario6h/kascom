@@ -198,16 +198,17 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-radial">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-900 to-primary-800"></div>
-
-        {/* Animated blobs */}
-        <div className="absolute inset-0 opacity-50">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-purple/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-accent-orange/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-primary-500/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-        </div>
+      <section
+        className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        style={{
+          backgroundImage: 'url(/images/backgrounds/hero-background.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/85 via-primary-800/80 to-primary-900/85"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto">
