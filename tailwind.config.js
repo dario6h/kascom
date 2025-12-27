@@ -24,6 +24,7 @@ module.exports = {
           orange: '#F49867',
           coral: '#FF8A71',
           purple: '#AE67FA',
+          yellow: '#fbbf24',
         },
       },
       fontFamily: {
@@ -32,8 +33,8 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%)',
-        'gradient-text': 'linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%)',
-        'gradient-bar': 'linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%)',
+        'gradient-text': 'linear-gradient(89.97deg, #fbbf24 1.84%, #F49867 102.67%)',
+        'gradient-bar': 'linear-gradient(103.22deg, #fbbf24 -13.86%, #F49867 99.55%)',
       },
     },
   },
