@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-export default function Button({ 
-  children, 
+export default function Button({
+  children,
   href,
   variant = "primary",
   size = "default",
@@ -11,12 +11,12 @@ export default function Button({
   target,
   rel
 }) {
-  const baseClasses = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300";
+  const baseClasses = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent";
 
   const variants = {
-    primary: "bg-gradient-bar text-white hover:shadow-lg hover:shadow-accent-orange/30 hover:scale-105",
-    secondary: "bg-primary-700 text-white hover:bg-primary-600",
-    outline: "border-2 border-accent-orange text-accent-orange hover:bg-gradient-bar hover:text-white hover:border-transparent"
+    primary: "border-2 border-white/60 text-white hover:brightness-110 hover:border-white/80 focus:ring-blue-700 shadow-sm hover:shadow-md",
+    secondary: "bg-slate-700 text-white hover:bg-slate-600 focus:ring-slate-500 shadow-sm hover:shadow-md",
+    outline: "border-2 border-slate-400 text-slate-300 hover:border-slate-300 hover:text-white hover:bg-slate-700/30 focus:ring-slate-400"
   };
 
   const sizes = {
@@ -26,17 +26,18 @@ export default function Button({
   };
 
   const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;
+  const style = variant === 'primary' ? { backgroundColor: '#0a1628' } : undefined;
 
   if (href) {
     return (
-      <Link href={href} className={classes} target={target} rel={rel}>
+      <Link href={href} className={classes} style={style} target={target} rel={rel}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} className={classes} style={style}>
       {children}
     </button>
   );

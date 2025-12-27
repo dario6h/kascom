@@ -1,10 +1,11 @@
 import Container from './Container';
 
-export default function Section({ 
-  children, 
+export default function Section({
+  children,
   className = "",
   containerClassName = "",
-  background = "white"
+  background = "white",
+  style
 }) {
   const bgColors = {
     white: 'bg-white',
@@ -14,7 +15,7 @@ export default function Section({
   };
 
   return (
-    <section className={`py-16 md:py-24 ${bgColors[background]} ${className}`}>
+    <section className={`py-16 md:py-24 ${bgColors[background]} ${className}`} style={style}>
       <Container className={containerClassName}>
         {children}
       </Container>

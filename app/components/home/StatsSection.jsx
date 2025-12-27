@@ -12,7 +12,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <Section background="dark" className="py-16">
+    <Section background="dark" className="py-16" style={{ backgroundColor: '#0a1628' }}>
       <AnimatedSection animation="fadeIn">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
