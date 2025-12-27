@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import MobileMenu from './MobileMenu';
 
@@ -134,18 +134,29 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-primary-400 hover:text-white transition-all"
-              aria-label="Toggle mobile menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
+            {/* Mobile Menu Button & Language Toggle */}
+            <div className="lg:hidden flex items-center gap-4">
+              {/* Language Toggle */}
+              <button
+                onClick={toggleLanguage}
+                className="relative px-3 py-2 text-primary-400 font-medium hover:text-white transition-all group"
+                aria-label="Toggle language"
+              >
+                ع
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-bar group-hover:w-full transition-all duration-300"></span>
+              </button>
+
+              {/* Hamburger Menu Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="flex flex-col gap-1.5 p-2 text-primary-400 hover:text-white transition-all group"
+                aria-label="Toggle mobile menu"
+              >
+                <span className={`w-6 h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                <span className={`w-6 h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`w-6 h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
