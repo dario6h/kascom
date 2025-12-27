@@ -237,106 +237,124 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <Section background="dark" className="py-16">
-        <AnimatedSection animation="fadeIn">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
-              const numericValue = stat.number.replace(/\D/g, '');
-              const suffix = stat.number.replace(/\d/g, '');
+      <Section background="dark" className="py-16 relative overflow-hidden">
+        {/* Corner Glows */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-accent-yellow/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-orange/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
 
-              return (
-                <AnimatedSection key={index} animation="scaleIn" delay={index * 0.1}>
-                  <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
-                      <Counter end={numericValue} suffix={suffix} duration={2000} />
+        <div className="relative z-10">
+          <AnimatedSection animation="fadeIn">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, index) => {
+                const numericValue = stat.number.replace(/\D/g, '');
+                const suffix = stat.number.replace(/\d/g, '');
+
+                return (
+                  <AnimatedSection key={index} animation="scaleIn" delay={index * 0.1}>
+                    <div className="text-center">
+                      <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                        <Counter end={numericValue} suffix={suffix} duration={2000} />
+                      </div>
+                      <div className="text-primary-400 font-medium">{stat.label}</div>
                     </div>
-                    <div className="text-primary-400 font-medium">{stat.label}</div>
-                  </div>
-                </AnimatedSection>
-              );
-            })}
-          </div>
-        </AnimatedSection>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </AnimatedSection>
+        </div>
       </Section>
 
       {/* Services Section */}
-      <Section background="dark" className="py-20">
-        <AnimatedSection animation="fadeInUp">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">Our Services</span>
-            </h2>
-            <p className="text-lg text-primary-400 max-w-2xl mx-auto">
-              Comprehensive solutions tailored to meet your business needs across automotive, technology, and digital transformation.
-            </p>
-          </div>
-        </AnimatedSection>
+      <Section background="dark" className="py-20 relative overflow-hidden">
+        {/* Corner Glows */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-orange/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-yellow/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <AnimatedSection key={index} animation="fadeInUp" delay={index * 0.1}>
-              <div className="p-8 bg-[#0a1628]/80 backdrop-blur-lg border border-primary-600/20 rounded-3xl hover:bg-[#0a1628]/90 hover:border-primary-500/30 transition-all duration-300 group h-full flex flex-col">
-                {/* Icon at top */}
-                <div className="mb-6">
-                  <div className="w-20 h-20 bg-primary-800/50 rounded-2xl flex items-center justify-center group-hover:bg-primary-700/50 transition-all duration-300">
-                    <service.icon className="w-10 h-10 text-accent-orange" strokeWidth={1.5} />
+        <div className="relative z-10">
+          <AnimatedSection animation="fadeInUp">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                <span className="gradient-text">Our Services</span>
+              </h2>
+              <p className="text-lg text-primary-400 max-w-2xl mx-auto">
+                Comprehensive solutions tailored to meet your business needs across automotive, technology, and digital transformation.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, index) => (
+              <AnimatedSection key={index} animation="fadeInUp" delay={index * 0.1}>
+                <div className="p-8 bg-[#0a1628]/80 backdrop-blur-lg border border-primary-600/20 rounded-3xl hover:bg-[#0a1628]/90 hover:border-primary-500/30 transition-all duration-300 group h-full flex flex-col">
+                  {/* Icon at top */}
+                  <div className="mb-6">
+                    <div className="w-20 h-20 bg-primary-800/50 rounded-2xl flex items-center justify-center group-hover:bg-primary-700/50 transition-all duration-300">
+                      <service.icon className="w-10 h-10 text-accent-orange" strokeWidth={1.5} />
+                    </div>
                   </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold text-white mb-3">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-primary-400/80 text-sm leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+
+                  {/* Features list with checkmarks */}
+                  <ul className="space-y-3">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-sm">
+                        <CheckCircle2 className="w-5 h-5 text-accent-orange flex-shrink-0" strokeWidth={2} />
+                        <span className="text-primary-400/90">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-primary-400/80 text-sm leading-relaxed mb-6">
-                  {service.description}
-                </p>
-
-                {/* Features list with checkmarks */}
-                <ul className="space-y-3">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-sm">
-                      <CheckCircle2 className="w-5 h-5 text-accent-orange flex-shrink-0" strokeWidth={2} />
-                      <span className="text-primary-400/90">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimatedSection>
-          ))}
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </Section>
 
       {/* Features Section */}
-      <Section background="dark" className="py-20">
-        <AnimatedSection animation="fadeInUp">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">Why Choose KASCOM</span>
-            </h2>
-            <p className="text-lg text-primary-400 max-w-2xl mx-auto">
-              We deliver exceptional results through our commitment to excellence, innovation, and customer success.
-            </p>
-          </div>
-        </AnimatedSection>
+      <Section background="dark" className="py-20 relative overflow-hidden">
+        {/* Corner Glows */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-accent-yellow/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-orange/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {features.map((feature, index) => (
-            <AnimatedSection key={index} animation="fadeInUp" delay={index * 0.1}>
-              <div className="p-10 bg-[#0a1628]/80 backdrop-blur-lg border border-primary-600/20 rounded-3xl hover:bg-[#0a1628]/90 hover:border-primary-500/30 transition-all duration-300 group h-full">
-                <div className="w-20 h-20 bg-gradient-to-br from-accent-yellow/20 to-accent-orange/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
-                  <feature.icon className="w-10 h-10 text-accent-yellow" strokeWidth={1.5} />
+        <div className="relative z-10">
+          <AnimatedSection animation="fadeInUp">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                <span className="gradient-text">Why Choose KASCOM</span>
+              </h2>
+              <p className="text-lg text-primary-400 max-w-2xl mx-auto">
+                We deliver exceptional results through our commitment to excellence, innovation, and customer success.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {features.map((feature, index) => (
+              <AnimatedSection key={index} animation="fadeInUp" delay={index * 0.1}>
+                <div className="p-10 bg-[#0a1628]/80 backdrop-blur-lg border border-primary-600/20 rounded-3xl hover:bg-[#0a1628]/90 hover:border-primary-500/30 transition-all duration-300 group h-full">
+                  <div className="w-20 h-20 bg-gradient-to-br from-accent-yellow/20 to-accent-orange/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
+                    <feature.icon className="w-10 h-10 text-accent-yellow" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-primary-400/90 text-lg leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-primary-400/90 text-lg leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            </AnimatedSection>
-          ))}
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </Section>
 
