@@ -296,7 +296,7 @@ export default function Home() {
                 <ul className="space-y-3">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-3 text-sm">
-                      <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0" strokeWidth={2} />
+                      <CheckCircle2 className="w-5 h-5 text-accent-orange flex-shrink-0" strokeWidth={2} />
                       <span className="text-primary-400/90">{feature}</span>
                     </li>
                   ))}
@@ -324,8 +324,8 @@ export default function Home() {
           {features.map((feature, index) => (
             <AnimatedSection key={index} animation="fadeInUp" delay={index * 0.1}>
               <div className="p-10 bg-[#0a1628]/80 backdrop-blur-lg border border-primary-600/20 rounded-3xl hover:bg-[#0a1628]/90 hover:border-primary-500/30 transition-all duration-300 group h-full">
-                <div className="w-20 h-20 bg-gradient-to-br from-accent-purple/20 to-accent-orange/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
-                  <feature.icon className="w-10 h-10 text-accent-orange" strokeWidth={1.5} />
+                <div className="w-20 h-20 bg-gradient-to-br from-accent-yellow/20 to-accent-orange/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
+                  <feature.icon className="w-10 h-10 text-accent-yellow" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">
                   {feature.title}
