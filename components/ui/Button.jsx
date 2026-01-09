@@ -9,7 +9,8 @@ export default function Button({
   onClick,
   type = "button",
   target,
-  rel
+  rel,
+  style: customStyle
 }) {
   const baseClasses = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent";
 
@@ -26,7 +27,8 @@ export default function Button({
   };
 
   const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;
-  const style = variant === 'primary' ? { backgroundColor: '#0a1628' } : undefined;
+  const defaultStyle = variant === 'primary' ? { backgroundColor: '#0a1628' } : undefined;
+  const style = { ...defaultStyle, ...customStyle };
 
   if (href) {
     return (

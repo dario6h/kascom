@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Military Stencil Font Styling */
+@font-face {
+  font-family: 'Military Stencil';
+  src: local('Stencil Std'), local('Stencil');
+  font-weight: 700;
+  font-style: normal;
+}
 
 :root {
   --font-family: 'Manrope', 'Inter', sans-serif;
@@ -109,4 +120,16 @@ body {
 
 .animation-delay-3000 {
   animation-delay: 3s;
+}
+
+/* Slide animations for partners section */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

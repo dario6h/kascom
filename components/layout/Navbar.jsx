@@ -60,13 +60,14 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="relative px-4 py-2 font-medium transition-all text-primary-400 hover:text-white group"
+                  className="relative px-4 py-2 font-normal text-primary-200 transition-all group"
                 >
                   {item.name}
                   <span
-                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-bar transition-all duration-300 ${
+                    className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ${
                       isActive(item.href) ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}
+                    style={{ backgroundColor: '#f9b233' }}
                   ></span>
                 </Link>
               ))}
@@ -74,11 +75,11 @@ export default function Navbar() {
               {/* Language Toggle */}
               <button
                 onClick={toggleLanguage}
-                className="relative px-4 py-2 text-primary-400 font-medium hover:text-white transition-all group"
+                className="relative px-4 py-2 font-normal text-primary-200 transition-all group"
                 aria-label="Toggle language"
               >
                 ع
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-bar group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" style={{ backgroundColor: '#f9b233' }}></span>
               </button>
             </div>
 
@@ -87,17 +88,19 @@ export default function Navbar() {
               {/* Language Toggle */}
               <button
                 onClick={toggleLanguage}
-                className="relative px-3 py-2 text-primary-400 font-medium hover:text-white transition-all group"
+                className="relative px-3 py-2 font-medium transition-all group"
+                style={{ fontFamily: '"Black Ops One", sans-serif', color: '#f9b233' }}
                 aria-label="Toggle language"
               >
                 ع
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-bar group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" style={{ backgroundColor: '#f9b233' }}></span>
               </button>
 
               {/* Hamburger Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="flex flex-col gap-1.5 p-2 text-primary-400 hover:text-white transition-all group"
+                className="flex flex-col gap-1.5 p-2 transition-all group"
+                style={{ color: '#f9b233' }}
                 aria-label="Toggle mobile menu"
               >
                 <span className={`w-6 h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
