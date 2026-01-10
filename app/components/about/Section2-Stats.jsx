@@ -12,26 +12,19 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <Section className="py-8 md:py-10 lg:py-12" style={{ backgroundColor: '#f9b233' }}>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+    <Section className="py-6 md:py-8 lg:py-10" style={{ backgroundColor: '#f5a623' }}>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x-0 md:divide-x divide-neutral-700/15">
         {stats.map((stat, index) => {
           const numericValue = stat.number.replace(/\D/g, '');
           const suffix = stat.number.replace(/\d/g, '');
 
           return (
-            <div key={index} className="flex items-center h-full">
-              <div className="pl-4 sm:pl-5 md:pl-6 lg:pl-8 border-l-2 sm:border-l-3 md:border-l-4 border-neutral-800 flex flex-col justify-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-neutral-800 font-bold mb-1 sm:mb-2 uppercase leading-none">
-                  <Counter end={numericValue} suffix={suffix} duration={3500} />
-                </div>
-                <div
-                  className="text-xs sm:text-sm md:text-base lg:text-lg text-neutral-800 tracking-wide md:tracking-wider uppercase font-medium leading-tight"
-                  style={{
-                    fontFamily: '"Black Ops One", sans-serif'
-                  }}
-                >
-                  {stat.label}
-                </div>
+            <div key={index} className="flex flex-col items-center justify-center text-center px-4">
+              <div className="text-4xl sm:text-5xl md:text-6xl text-neutral-700 font-bold mb-3 leading-none">
+                <Counter end={numericValue} suffix={suffix} duration={2500} />
+              </div>
+              <div className="text-sm sm:text-base md:text-lg text-neutral-600 font-medium leading-tight">
+                {stat.label}
               </div>
             </div>
           );

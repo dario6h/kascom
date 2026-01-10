@@ -45,16 +45,13 @@ const offerings = [
 
 export default function WhatWeOfferSection() {
   return (
-    <Section className="py-12 sm:py-14 md:py-16 lg:py-20 xl:py-24" style={{ backgroundColor: '#f5f5f5' }}>
+    <Section className="py-12 sm:py-14 md:py-16 lg:py-20 xl:py-24">
       <div>
         {/* Section Title */}
         <div className="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-16">
-          <h2
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light tracking-wide sm:tracking-wider text-neutral-800 relative inline-block pb-2 sm:pb-3"
-            style={{ fontFamily: '"Black Ops One", sans-serif' }}
-          >
-            WHAT WE OFFER
-            <div className="absolute bottom-0 left-0 right-0 w-full h-0.5 sm:h-1 bg-yellow-500"></div>
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-wide text-neutral-800 relative inline-block pb-2 sm:pb-3">
+            What We Offer
+            <div className="absolute bottom-0 left-0 right-0 w-full h-0.5 sm:h-1" style={{ backgroundColor: '#f5a623' }}></div>
           </h2>
         </div>
 
@@ -68,7 +65,7 @@ export default function WhatWeOfferSection() {
               {/* Icon Circle */}
               <div
                 className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: '#f9b233' }}
+                style={{ backgroundColor: '#f5a623' }}
               >
                 <offering.icon
                   className="w-7 h-7 sm:w-8 sm:h-8 text-white"
@@ -78,10 +75,10 @@ export default function WhatWeOfferSection() {
 
               {/* Content */}
               <div className="space-y-2">
-                <h3 className="text-sm sm:text-base md:text-lg font-bold text-neutral-900 leading-tight">
+                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-neutral-800 leading-tight">
                   {offering.title}
                 </h3>
-                <p className="text-neutral-700 text-xs sm:text-sm md:text-sm leading-relaxed">
+                <p className="text-neutral-600 text-xs sm:text-sm md:text-sm leading-relaxed">
                   {offering.description}
                 </p>
               </div>

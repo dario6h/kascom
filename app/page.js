@@ -10,7 +10,7 @@ import CTASection from './components/about/Section7-CTA';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-radial">
+    <div className="min-h-screen">
       <HeroSlideshow />
       <StatsSection />
       <OurWorks />

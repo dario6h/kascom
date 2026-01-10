@@ -24,7 +24,19 @@ module.exports = {
           orange: '#F49867',
           coral: '#FF8A71',
           purple: '#AE67FA',
-          yellow: '#fbbf24',
+          yellow: '#f5a623',  // Updated to match new softer accent
+        },
+        // Design System Colors
+        universal: {
+          bg: '#f5f5f5',      // Universal page background
+          white: '#ffffff',   // Card backgrounds
+          accent: '#f5a623',  // Accent sections
+        },
+        text: {
+          primary: '#2d3748',    // Main headings
+          secondary: '#4a5568',  // Subheadings
+          tertiary: '#718096',   // Body text
+          muted: '#a0aec0',      // Subtle text
         },
       },
       fontFamily: {

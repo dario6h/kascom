@@ -4,14 +4,15 @@ export default function Section({
   children,
   className = "",
   containerClassName = "",
-  background = "white",
+  background = "transparent",
   style
 }) {
   const bgColors = {
     white: 'bg-white',
     gray: 'bg-gray-50',
     dark: 'bg-gray-900',
-    primary: 'bg-primary-50'
+    primary: 'bg-primary-50',
+    transparent: 'bg-transparent'
   };
 
   return (

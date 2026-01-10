@@ -6,7 +6,6 @@ import ClientLogo from './ClientLogo';
 
 const clients = [
   { name: 'Saudi Aramco', logoBase: 'aramco' },
-  { name: 'Ibn Zahr', logoBase: 'ibnzahr' },
   { name: 'KAUST', logoBase: 'kaust' },
   { name: 'Royal Commission', logoBase: 'royal-commission' },
   { name: 'China Communications Construction Company', logoBase: 'ccc' },
@@ -50,27 +49,14 @@ export default function ClientsSection() {
     setCurrentIndex(index * itemsPerSlide);
   };
 
-  const getVisiblePartners = () => {
-    const visible = [];
-    for (let i = 0; i < itemsPerSlide; i++) {
-      const index = (currentIndex + i) % clients.length;
-      visible.push({ ...clients[index], uniqueKey: `${currentIndex}-${i}` });
-    }
-    return visible;
-  };
-
   return (
-    <Section className="pt-6 pb-8 sm:pt-8 sm:pb-10 md:pt-10 md:pb-12 lg:pt-12 lg:pb-14 relative" style={{ backgroundColor: '#f9b233' }}>
+    <Section className="pt-4 pb-6 sm:pt-6 sm:pb-8 md:pt-8 md:pb-10 lg:pt-10 lg:pb-12 relative" style={{ backgroundColor: '#f5a623' }}>
       <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center lg:pr-8">
         {/* Left Side - Partners Slideshow */}
         <div className="flex flex-col space-y-6 sm:space-y-8">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl text-neutral-800 tracking-wide sm:tracking-wider uppercase font-normal leading-tight"
-              style={{
-                fontFamily: '"Black Ops One", sans-serif'
-              }}
-            >
-              OUR CLIENTS
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-neutral-700 tracking-wide font-extrabold leading-tight">
+              Our Clients
             </h2>
 
             {/* Slide Indicators */}
@@ -81,13 +67,9 @@ export default function ClientsSection() {
                   onClick={() => goToSlide(index)}
                   className={`rounded-full transition-all duration-300 touch-manipulation ${
                     index === currentSlideIndex
-                      ? 'w-8 sm:w-8 h-2.5 bg-neutral-800'
-                      : 'w-2.5 h-2.5 bg-neutral-800/50 hover:bg-neutral-800/70'
+                      ? 'w-8 h-2.5 bg-neutral-700'
+                      : 'w-2.5 h-2.5 bg-neutral-700/50 hover:bg-neutral-700/70'
                   }`}
-                  style={{
-                    minWidth: index === currentSlideIndex ? '32px' : '10px',
-                    minHeight: '10px'
-                  }}
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
@@ -106,17 +88,19 @@ export default function ClientsSection() {
               {[...clients, ...clients.slice(0, itemsPerSlide)].map((partner, index) => {
                 const isRoyalCommission = partner.name === 'Royal Commission';
                 const isHEC = partner.name === 'China Harbour Engineering Company';
-                const isIbnZahr = partner.name === 'Ibn Zahr';
 
                 // Get size for specific logos
                 let logoSize = '100%';
                 if (isHEC) logoSize = '90%';
-                if (isIbnZahr) logoSize = '130%';
+
+                // Get background color for specific logos
+                let bgClass = 'bg-white';
+                if (isRoyalCommission) bgClass = 'bg-neutral-800';
 
                 return (
                   <div
                     key={index}
-                    className={`${isRoyalCommission ? 'bg-neutral-800' : 'bg-white'} p-3 sm:p-4 flex items-center justify-center h-20 sm:h-24 flex-shrink-0 rounded-sm`}
+                    className={`${bgClass} p-3 sm:p-4 flex items-center justify-center h-20 sm:h-24 flex-shrink-0 rounded-sm`}
                     style={{
                       width: `calc((100% - ${(itemsPerSlide - 1) * 16}px) / ${itemsPerSlide})`
                     }}

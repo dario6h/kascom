@@ -14,14 +14,15 @@ export default function CTASection() {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-900/80 via-transparent to-primary-900/80"></div>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-5 md:mb-6 leading-tight px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold mb-4 sm:mb-5 md:mb-6 leading-tight px-4">
             <span className="gradient-text">Ready to Transform Your Business?</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-primary-200 mb-8 sm:mb-9 md:mb-10 max-w-3xl mx-auto px-4 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-primary-100 mb-8 sm:mb-9 md:mb-10 max-w-3xl mx-auto px-4 leading-relaxed">
             Join hundreds of successful companies that trust KASCOOM for their digital transformation journey.
           </p>
           <Button

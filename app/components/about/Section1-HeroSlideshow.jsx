@@ -117,12 +117,11 @@ export default function HeroSlideshow() {
             backgroundImage: `url(/images/about/hero/${slide.image})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: '#1a1f2e'
+            backgroundRepeat: 'no-repeat'
           }}
         >
-          {/* Dark blue overlay */}
-          <div className="absolute inset-0 bg-primary-900/70"></div>
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/60"></div>
 
           {/* Content */}
           <div className="relative h-full flex items-center justify-center sm:justify-end px-4 sm:px-6 lg:px-16">
@@ -159,20 +158,18 @@ export default function HeroSlideshow() {
       {/* Navigation Arrows - Hidden on mobile, visible on hover for desktop */}
       <button
         onClick={prevSlide}
-        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center backdrop-blur-sm hover:bg-white/20 transition-all duration-300 rounded-full opacity-0 group-hover/slideshow:opacity-100 touch-manipulation"
-        style={{ backgroundColor: 'rgba(64, 64, 64, 0.1)' }}
+        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 rounded-full opacity-0 group-hover/slideshow:opacity-100 touch-manipulation"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6 hover:scale-110 transition-transform text-neutral-700" />
+        <ChevronLeft className="w-6 h-6 hover:scale-110 transition-transform text-white" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center backdrop-blur-sm hover:bg-white/20 transition-all duration-300 rounded-full opacity-0 group-hover/slideshow:opacity-100 touch-manipulation"
-        style={{ backgroundColor: 'rgba(64, 64, 64, 0.1)' }}
+        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 rounded-full opacity-0 group-hover/slideshow:opacity-100 touch-manipulation"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6 hover:scale-110 transition-transform text-neutral-700" />
+        <ChevronRight className="w-6 h-6 hover:scale-110 transition-transform text-white" />
       </button>
 
       {/* Slide Indicators - Larger tap targets for mobile */}
@@ -191,7 +188,7 @@ export default function HeroSlideshow() {
               index === currentSlide ? 'w-10 sm:w-8' : 'w-2.5 sm:w-2 hover:bg-white/70'
             }`}
             style={{
-              backgroundColor: index === currentSlide ? '#f9b233' : 'rgba(255, 255, 255, 0.5)',
+              backgroundColor: index === currentSlide ? '#f5a623' : 'rgba(255, 255, 255, 0.5)',
               minWidth: '10px',
               minHeight: '10px'
             }}

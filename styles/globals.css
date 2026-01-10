@@ -1,30 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+/* ============================================
+   KASCOOM WEBSITE - DESIGN SYSTEM
+   ============================================
+
+   UNIVERSAL DESIGN PRINCIPLES:
+
+   1. BACKGROUND COLORS:
+      - Universal background: #f5f5f5 (light gray)
+      - Card backgrounds: #ffffff (pure white)
+      - Accent sections: #f5a623 (softer orange)
+      - Dark theme pages: Use bg-gradient-radial
+
+   2. COLOR SATURATION:
+      - Avoid bright #f9b233 (too saturated)
+      - Use #f5a623 for all accent elements
+      - Text colors: neutral-700 to neutral-600 range
+      - NO pure black text (#000000)
+
+   3. TYPOGRAPHY:
+      - Default font weight: 600 (semibold), NOT 700 (bold)
+      - Avoid excessive uppercase text
+      - Remove "Black Ops One" font from sections
+      - Line height: 1.6 for body, 1.2 for headings
+      - Letter spacing: -0.01em for headings
+
+   4. PREVENT OVERLAPPING:
+      - Section component default: transparent background
+      - Only add explicit backgrounds where needed
+      - Use CSS variables for consistency
+      - Avoid inline backgroundColor unless intentional
+
+   6. IMAGE OVERLAYS:
+      - Universal overlay: bg-black/60 (60% black opacity)
+      - Use consistently across all background images
+      - Ensures text readability on any image
+      - Professional, neutral appearance
+
+   5. HIERARCHY:
+      - H1-H6: Use semantic sizing with clamp()
+      - Primary text: #2d3748 (neutral-800)
+      - Secondary text: #4a5568 (neutral-700)
+      - Body text: #718096 (neutral-600)
+      - Muted text: #a0aec0 (neutral-500)
+
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Military Stencil Font Styling */
-@font-face {
-  font-family: 'Military Stencil';
-  src: local('Stencil Std'), local('Stencil');
-  font-weight: 700;
-  font-style: normal;
-}
-
 :root {
-  --font-family: 'Manrope', 'Inter', sans-serif;
-  --gradient-text: linear-gradient(89.97deg, #fbbf24 1.84%, #F49867 102.67%);
-  --gradient-bar: linear-gradient(103.22deg, #fbbf24 -13.86%, #F49867 99.55%);
-  --color-bg: #040C18;
+  /* Typography */
+  --font-family: 'Manrope', sans-serif;
+
+  /* Universal Background Colors */
+  --color-bg-universal: #f5f5f5;        /* Light gray - universal page background */
+  --color-bg-white: #ffffff;            /* Pure white - card backgrounds */
+  --color-bg-accent: #f5a623;           /* Softer orange - accent sections (Stats, Clients) */
+
+  /* Dark Theme Colors (for Services, Projects, Contact pages) */
+  --color-bg-dark: #040C18;
   --color-footer: #031B34;
   --color-blog: #042c54;
-  --color-text: #81AFDD;
+
+  /* Text Colors */
+  --color-text-primary: #2d3748;        /* Neutral-800 - main headings */
+  --color-text-secondary: #4a5568;      /* Neutral-700 - subheadings */
+  --color-text-tertiary: #718096;       /* Neutral-600 - body text */
+  --color-text-muted: #a0aec0;          /* Neutral-500 - subtle text */
+  --color-text-light: #81AFDD;          /* Light blue - dark theme text */
+
+  /* Accent Colors */
+  --gradient-text: linear-gradient(89.97deg, #fbbf24 1.84%, #F49867 102.67%);
+  --gradient-bar: linear-gradient(103.22deg, #fbbf24 -13.86%, #F49867 99.55%);
+  --color-accent-orange: #F49867;
+  --color-accent-yellow: #f5a623;       /* Primary accent color */
   --color-subtext: #FF8A71;
 }
 
@@ -41,11 +93,55 @@ html {
 
 body {
   font-family: var(--font-family);
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-universal);
+  color: var(--color-text-tertiary);
+  line-height: 1.6;
 }
 
 [dir="rtl"] {
   font-family: 'Cairo', 'Manrope', system-ui, sans-serif;
+}
+
+/* ============================================
+   DESIGN SYSTEM - Universal Styles
+   ============================================ */
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;  /* semibold by default, not bold */
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h4 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h5 { font-size: clamp(1.125rem, 2vw, 1.5rem); }
+h6 { font-size: clamp(1rem, 1.5vw, 1.25rem); }
+
+p {
+  color: var(--color-text-tertiary);
+  line-height: 1.7;
+}
+
+/* Prevent Over-Saturation */
+.text-bold-override {
+  font-weight: 600 !important;  /* Enforce semibold instead of bold */
+}
+
+/* Background System */
+.bg-universal {
+  background-color: var(--color-bg-universal);
+}
+
+.bg-card {
+  background-color: var(--color-bg-white);
+}
+
+.bg-accent {
+  background-color: var(--color-bg-accent);
 }
 
 /* Gradient text utility */
@@ -54,6 +150,38 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Accent Underline */
+.accent-underline {
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.accent-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background-color: var(--color-accent-yellow);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--color-bg-white);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Universal Image Overlay */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* Section utilities */
@@ -73,63 +201,12 @@ body {
   }
 }
 
-/* Animated blob effect */
-@keyframes blob {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-}
-
-.animate-blob {
-  animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-/* Glowing pulse effect */
-@keyframes glow-pulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.1);
-  }
-}
-
-.animate-glow {
-  animation: glow-pulse 8s ease-in-out infinite;
-}
-
-.animation-delay-1000 {
-  animation-delay: 1s;
-}
-
-.animation-delay-3000 {
-  animation-delay: 3s;
-}
-
-/* Slide animations for partners section */
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%);
+/* Simple fade-in animation - used sparingly */
+@keyframes fadeIn {
+  from {
     opacity: 0;
   }
-  100% {
-    transform: translateX(0);
+  to {
     opacity: 1;
   }
 }
