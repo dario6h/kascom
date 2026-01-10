@@ -1,0 +1,170 @@
+warning: in the working copy of 'app/layout.js', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/app/components/about/ClientLogo.jsx b/app/components/about/ClientLogo.jsx[m
+[1mindex 34ea4b0..a739b69 100644[m
+[1m--- a/app/components/about/ClientLogo.jsx[m
+[1m+++ b/app/components/about/ClientLogo.jsx[m
+[36m@@ -1,27 +1,13 @@[m
+ 'use client';[m
+ [m
+[31m-import { useState } from 'react';[m
+[31m-[m
+ export default function ClientLogo({ name, logoBase, className, style }) {[m
+[31m-  const [imgSrc, setImgSrc] = useState(`/images/about/clients/${logoBase}.png`);[m
+[31m-  const [hasError, setHasError] = useState(false);[m
+[31m-[m
+[31m-  const handleError = () => {[m
+[31m-    // If PNG fails and we haven't already tried JPG, try JPG[m
+[31m-    if (!hasError && imgSrc.endsWith('.png')) {[m
+[31m-      setHasError(true);[m
+[31m-      setImgSrc(`/images/about/clients/${logoBase}.jpg`);[m
+[31m-    }[m
+[31m-  };[m
+[31m-[m
+   return ([m
+     <img[m
+[31m-      src={imgSrc}[m
+[32m+[m[32m      src={`/images/about/clients/${logoBase}.png`}[m
+       alt={name}[m
+       className={className}[m
+       style={style}[m
+       loading="lazy"[m
+[31m-      onError={handleError}[m
+     />[m
+   );[m
+ }[m
+[1mdiff --git a/app/components/about/Section4-AboutTabs.jsx b/app/components/about/Section4-AboutTabs.jsx[m
+[1mindex f8c069d..32be935 100644[m
+[1m--- a/app/components/about/Section4-AboutTabs.jsx[m
+[1m+++ b/app/components/about/Section4-AboutTabs.jsx[m
+[36m@@ -42,8 +42,8 @@[m [mexport default function AboutTabs() {[m
+   );[m
+ [m
+   return ([m
+[31m-    <section className="pt-6 md:pt-8 lg:pt-10">[m
+[31m-      <div className="grid md:grid-cols-2 gap-0 min-h-[400px] sm:min-h-[480px] md:min-h-[520px]">[m
+[32m+[m[32m    <section className="pt-6 md:pt-8 lg:pt-10 overflow-hidden">[m
+[32m+[m[32m      <div className="grid md:grid-cols-2 gap-0 min-h-[400px] sm:min-h-[480px] md:min-h-[520px] w-full">[m
+         {/* Left Side - Tabs with Background Image */}[m
+         <div className="relative min-h-[400px] sm:min-h-[480px] md:min-h-0 overflow-hidden">[m
+           {/* Background Images with Cross-Fade */}[m
+[1mdiff --git a/app/components/about/Section5-Clients.jsx b/app/components/about/Section5-Clients.jsx[m
+[1mindex eb1040c..8324104 100644[m
+[1m--- a/app/components/about/Section5-Clients.jsx[m
+[1m+++ b/app/components/about/Section5-Clients.jsx[m
+[36m@@ -50,8 +50,8 @@[m [mexport default function ClientsSection() {[m
+   };[m
+ [m
+   return ([m
+[31m-    <Section className="pt-4 pb-6 sm:pt-6 sm:pb-8 md:pt-8 md:pb-10 lg:pt-10 lg:pb-12 relative" style={{ backgroundColor: '#f5a623' }}>[m
+[31m-      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center lg:pr-8">[m
+[32m+[m[32m    <Section className="pt-4 pb-6 sm:pt-6 sm:pb-8 md:pt-8 md:pb-10 lg:pt-10 lg:pb-12 relative overflow-hidden" style={{ backgroundColor: '#f5a623' }}>[m
+[32m+[m[32m      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">[m
+         {/* Left Side - Partners Slideshow */}[m
+         <div className="flex flex-col space-y-6 sm:space-y-8">[m
+           <div className="flex items-center justify-between gap-4">[m
+[36m@@ -77,7 +77,7 @@[m [mexport default function ClientsSection() {[m
+           </div>[m
+ [m
+           {/* Partners Grid */}[m
+[31m-          <div className="relative overflow-hidden max-w-2xl h-20 sm:h-24 mt-2 sm:mt-4">[m
+[32m+[m[32m          <div className="relative overflow-hidden w-full max-w-2xl h-20 sm:h-24 mt-2 sm:mt-4">[m
+             <div[m
+               className="flex gap-3 sm:gap-4 h-full"[m
+               style={{[m
+[36m@@ -141,7 +141,9 @@[m [mexport default function ClientsSection() {[m
+             {/* Quote Content */}[m
+             <div className="relative z-10 text-left max-w-xl">[m
+               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white font-light leading-relaxed">[m
+[31m-                Committed to make a positive difference to the communities in which it operates.[m
+[32m+[m[32m                Committed to make a positive difference<br />[m
+[32m+[m[32m                to the communities in which<br />[m
+[32m+[m[32m                it operates.[m
+               </p>[m
+             </div>[m
+           </div>[m
+[1mdiff --git a/app/layout.js b/app/layout.js[m
+[1mindex 3d05386..98d9759 100644[m
+[1m--- a/app/layout.js[m
+[1m+++ b/app/layout.js[m
+[36m@@ -1,6 +1,6 @@[m
+ import '../styles/globals.css';[m
+ import { LanguageProvider } from '@/context/LanguageContext';[m
+[31m-import Navbar from '@/components/layout/Navbar';[m
+[32m+[m[32mimport Navbar from '@/components/layout/navbar/Navbar';[m
+ import Footer from '@/components/layout/Footer';[m
+ [m
+ export const metadata = {[m
+[1mdiff --git a/components/layout/MobileMenu.jsx b/components/layout/MobileMenu.jsx[m
+[1mdeleted file mode 100644[m
+[1mindex b8928fd..0000000[m
+[1m--- a/components/layout/MobileMenu.jsx[m
+[1m+++ /dev/null[m
+[36m@@ -1,135 +0,0 @@[m
+[31m-'use client';[m
+[31m-[m
+[31m-import { useState } from 'react';[m
+[31m-import Link from 'next/link';[m
+[31m-import { motion, AnimatePresence } from 'framer-motion';[m
+[31m-import { ChevronDown } from 'lucide-react';[m
+[31m-import { useLanguage } from '@/context/LanguageContext';[m
+[31m-[m
+[31m-export default function MobileMenu({ isOpen, onClose, menuItems, currentPath }) {[m
+[31m-  const [expandedItem, setExpandedItem] = useState(null);[m
+[31m-  const { language, toggleLanguage } = useLanguage();[m
+[31m-[m
+[31m-  const isActive = (href) => {[m
+[31m-    if (href === '/') {[m
+[31m-      return currentPath === '/';[m
+[31m-    }[m
+[31m-    return currentPath.startsWith(href);[m
+[31m-  };[m
+[31m-[m
+[31m-  const handleLinkClick = () => {[m
+[31m-    onClose();[m
+[31m-    setExpandedItem(null);[m
+[31m-  };[m
+[31m-[m
+[31m-  const toggleExpand = (name) => {[m
+[31m-    setExpandedItem(expandedItem === name ? null : name);[m
+[31m-  };[m
+[31m-[m
+[31m-  return ([m
+[31m-    <AnimatePresence>[m
+[31m-      {isOpen && ([m
+[31m-        <>[m
+[31m-          {/* Backdrop */}[m
+[31m-          <motion.div[m
+[31m-            initial={{ opacity: 0 }}[m
+[31m-            animate={{ opacity: 1 }}[m
+[31m-            exit={{ opacity: 0 }}[m
+[31m-            onClick={onClose}[m
+[31m-            className="fixed inset-0 bg-black/50 z-40 lg:hidden"[m
+[31m-          />[m
+[31m-[m
+[31m-          {/* Menu Panel */}[m
+[31m-          <motion.div[m
+[31m-            initial={{ x: '100%' }}[m
+[31m-            animate={{ x: 0 }}[m
+[31m-            exit={{ x: '100%' }}[m
+[31m-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}[m
+[31m-            className="fixed top-20 right-0 bottom-0 w-80 bg-primary-800/95 backdrop-blur-lg shadow-2xl z-50 lg:hidden overflow-y-auto border-l border-primary-600/30"[m
+[31m-          >[m
+[31m-            <div className="p-6 space-y-2">[m
+[31m-              {menuItems.map((item) => ([m
+[31m-                <div key={item.name}>[m
+[31m-                  {item.dropdown ? ([m
+[31m-                    <>[m
+[31m-                      {/* Services with Dropdown */}[m
+[31m-                      <button[m
+[31m-                        onClick={() => toggleExpand(item.name)}[m
+[31m-                        className="relative w-full flex items-center justify-between px-4 py-3 font-medium transition-all text-primary-400 hover:text-white group"[m
+[31m-                      >[m
+[31m-                        <span>{item.name}</span>[m
+[31m-                        <motion.div[m
+[31m-                          animate={{ rotate: expandedItem === item.name ? 180 : 0 }}[m
+[31m-                          transition={{ duration: 0.2 }}[m
+[31m-                        >[m
+[31m-                          <ChevronDown className="w-5 h-5" />[m
+[31m-                        </motion.div>[m
+[31m-                        <span[m
+[31m-                          className={`absolute bottom-0 left-0 h-0.5 bg-gradient-bar transition-all du

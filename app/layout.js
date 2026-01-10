@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import { LanguageProvider } from '@/context/LanguageContext';
-import Navbar from '@/components/layout/Navbar';
+import Navbar from '@/components/layout/navbar/Navbar';
 import Footer from '@/components/layout/Footer';
 
 export const metadata = {

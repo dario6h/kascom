@@ -50,8 +50,8 @@ export default function ClientsSection() {
   };
 
   return (
-    <Section className="pt-4 pb-6 sm:pt-6 sm:pb-8 md:pt-8 md:pb-10 lg:pt-10 lg:pb-12 relative" style={{ backgroundColor: '#f5a623' }}>
-      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center lg:pr-8">
+    <Section className="pt-4 pb-6 sm:pt-6 sm:pb-8 md:pt-8 md:pb-10 lg:pt-10 lg:pb-12 relative overflow-hidden" style={{ backgroundColor: '#f5a623' }}>
+      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
         {/* Left Side - Partners Slideshow */}
         <div className="flex flex-col space-y-6 sm:space-y-8">
           <div className="flex items-center justify-between gap-4">
@@ -77,7 +77,7 @@ export default function ClientsSection() {
           </div>
 
           {/* Partners Grid */}
-          <div className="relative overflow-hidden max-w-2xl h-20 sm:h-24 mt-2 sm:mt-4">
+          <div className="relative overflow-hidden w-full max-w-2xl h-20 sm:h-24 mt-2 sm:mt-4">
             <div
               className="flex gap-3 sm:gap-4 h-full"
               style={{
@@ -141,7 +141,9 @@ export default function ClientsSection() {
             {/* Quote Content */}
             <div className="relative z-10 text-left max-w-xl">
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white font-light leading-relaxed">
-                Committed to make a positive difference to the communities in which it operates.
+                Committed to make a positive difference<br />
+                to the communities in which<br />
+                it operates.
               </p>
             </div>
           </div>

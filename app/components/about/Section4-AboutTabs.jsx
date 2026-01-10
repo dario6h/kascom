@@ -42,8 +42,8 @@ export default function AboutTabs() {
   );
 
   return (
-    <section className="pt-6 md:pt-8 lg:pt-10">
-      <div className="grid md:grid-cols-2 gap-0 min-h-[400px] sm:min-h-[480px] md:min-h-[520px]">
+    <section className="pt-6 md:pt-8 lg:pt-10 overflow-hidden">
+      <div className="grid md:grid-cols-2 gap-0 min-h-[400px] sm:min-h-[480px] md:min-h-[520px] w-full">
         {/* Left Side - Tabs with Background Image */}
         <div className="relative min-h-[400px] sm:min-h-[480px] md:min-h-0 overflow-hidden">
           {/* Background Images with Cross-Fade */}

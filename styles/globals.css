@@ -89,6 +89,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -96,6 +97,8 @@ body {
   background-color: var(--color-bg-universal);
   color: var(--color-text-tertiary);
   line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 [dir="rtl"] {
